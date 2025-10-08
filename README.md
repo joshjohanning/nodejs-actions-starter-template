@@ -1,5 +1,7 @@
 # nodejs-actions-starter-template
 
+[![CI](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/ci.yml/badge.svg)](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/ci.yml)
+[![Publish GitHub Action](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/publish.yml/badge.svg)](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/publish.yml)
 ![Coverage](./badges/coverage.svg)
 
 👋 Starter template with the action layout, linting, CI, and publishing pre-configured
