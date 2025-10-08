@@ -15,6 +15,35 @@ A complete GitHub Action starter template that includes:
 - ✅ GitHub REST API integration with Octokit
 - ✅ Repository statistics fetching example
 
+## Getting Started
+
+### 1. Use This Template
+
+1. Click "Use this template" to create a new repository
+2. Clone your new repository locally
+3. Run `npm install` to install dependencies
+
+### 2. Customize Your Action
+
+📋 **See [TEMPLATE_CHECKLIST_DELETE_ME.md](./TEMPLATE_CHECKLIST_DELETE_ME.md) for a comprehensive customization guide**
+
+1. Update `package.json` with your action name and details
+2. Update `action.yml` with your action's inputs and outputs
+3. Modify `src/index.js` with your action logic
+4. Update this README with your action's documentation
+5. Update the publish workflow if needed
+
+### 3. Test Your Action
+
+```bash
+npm test              # Run tests
+npm run lint          # Check code quality with ESLint
+npm run format:write  # Run Prettier for formatting
+npm run coverage      # Generate coverage badge
+npm run package       # Bundle for distribution
+npm run all           # Alternatively: Run format, lint, test, coverage, and package
+```
+
 ## Example Usage
 
 ```yml
@@ -48,7 +77,7 @@ A complete GitHub Action starter template that includes:
 
 This template includes everything you need to start developing GitHub Actions:
 
-### Getting Started
+### Development Setup
 
 1. Clone this repository
 2. Install dependencies: `npm install`
