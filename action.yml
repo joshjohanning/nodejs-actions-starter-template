@@ -1,5 +1,5 @@
 name: 'Hello World Action Template'
-description: '� A simple Hello World GitHub Action template with customizable greetings'
+description: '👋 A simple Hello World GitHub Action template with customizable greetings'
 
 branding:
   icon: 'message-circle'
