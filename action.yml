@@ -1,4 +1,4 @@
-name: 'Hello World Action Template'
+name: 'NodeJS Actions Starter Template'
 description: '👋 A simple Hello World GitHub Action template with customizable greetings'
 
 branding:
