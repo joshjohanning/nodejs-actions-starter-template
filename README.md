@@ -1,5 +1,7 @@
 # nodejs-actions-starter-template
 
+[![GitHub release](https://img.shields.io/github/release/joshjohanning/nodejs-actions-starter-template.svg?logo=github&labelColor=333)](https://github.com/joshjohanning/nodejs-actions-starter-template/releases)
+[![GitHub marketplace](https://img.shields.io/badge/marketplace-NodeJS%20Actions%20Starter%20Template-blue?logo=github&labelColor=333)](https://github.com/marketplace/actions/nodejs-actions-starter-template)
 [![CI](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/ci.yml/badge.svg)](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/ci.yml)
 [![Publish GitHub Action](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/publish.yml/badge.svg)](https://github.com/joshjohanning/nodejs-actions-starter-template/actions/workflows/publish.yml)
 ![Coverage](./badges/coverage.svg)
