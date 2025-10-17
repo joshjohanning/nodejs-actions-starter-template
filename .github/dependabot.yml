@@ -21,7 +21,7 @@ updates:
     schedule:
       interval: 'daily'
     commit-message:
-      prefix: 'chore:'
+      prefix: 'chore'
     groups:
       github-actions:
         patterns:
