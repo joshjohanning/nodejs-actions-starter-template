@@ -9,6 +9,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    commit-message:
+      prefix: 'ci:'
     groups:
       github-actions:
         patterns:
@@ -18,6 +20,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    commit-message:
+      prefix: 'chore:'
     groups:
       github-actions:
         patterns:
