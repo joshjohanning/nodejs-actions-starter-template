@@ -149,7 +149,7 @@ describe('Hello World Action', () => {
     test('should create summary table', async () => {
       await run();
 
-      expect(mockCore.summary.addHeading).toHaveBeenCalledWith('Hello World Action Results');
+      expect(mockCore.summary.addHeading).toHaveBeenCalledWith('🎯 Hello World Action Results');
       expect(mockCore.summary.addTable).toHaveBeenCalled();
       expect(mockCore.summary.write).toHaveBeenCalled();
     });
