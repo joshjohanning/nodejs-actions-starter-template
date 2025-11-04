@@ -181,7 +181,7 @@ export async function run() {
 
     // Create summary (only works in GitHub Actions environment)
     try {
-      await core.summary.addHeading('Hello World Action Results').addTable(summaryTable).write();
+      await core.summary.addHeading('🎯 Hello World Action Results').addTable(summaryTable).write();
     } catch {
       // Fallback: write table to console for local development
       core.info('📊 Hello World Action Results:');
