@@ -23,3 +23,4 @@ jobs:
           publish_minor_version: false
           publish_release_branch: false
           create_release_as_draft: true
+          draft_release_pr_reminder: true
