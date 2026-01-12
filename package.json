@@ -1,7 +1,7 @@
 {
   "name": "nodejs-actions-starter-template",
   "description": "👋 A starter template for creating GitHub Actions with Node.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "author": {
     "name": "Josh Johanning",
@@ -44,8 +44,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^2.0.1",
-    "@actions/github": "^6.0.1",
+    "@actions/core": "^2.0.2",
+    "@actions/github": "^7.0.0",
     "@octokit/rest": "^22.0.1"
   },
   "devDependencies": {
