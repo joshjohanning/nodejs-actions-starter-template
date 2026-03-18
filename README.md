@@ -19,6 +19,10 @@ A complete GitHub Action starter template that includes:
 - ✅ GitHub REST API integration with Octokit
 - ✅ Repository statistics fetching example
 
+## What's new
+
+Please refer to the [release page](https://github.com/joshjohanning/nodejs-actions-starter-template/releases) for the latest release notes.
+
 ## Getting Started
 
 ### 1. Use This Template
@@ -52,7 +56,7 @@ npm run all           # Alternatively: Run format, lint, test, coverage, and pac
 
 ```yml
 - name: Hello World Action
-  uses: your-username/your-action-name@v1
+  uses: your-username/your-action-name@v2
   with:
     who-to-greet: 'World'
     include-time: true
