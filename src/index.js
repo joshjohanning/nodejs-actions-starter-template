@@ -4,22 +4,14 @@
  *
  * Local Development & Testing:
  *
- * 1. Set environment variables to simulate GitHub Actions inputs:
- *    export INPUT_WHO_TO_GREET="Local Developer"
- *    export INPUT_INCLUDE_TIME="true"
- *    export INPUT_MESSAGE_PREFIX="Hey"
- *    export INPUT_GITHUB_TOKEN="ghp_your_token_here"  # Optional, for repo stats
+ * Uses core.getInput() which reads INPUT_<NAME> env vars (hyphens preserved).
+ * Since shell variables can't contain hyphens, use env(1) or inline assignment:
+ *
+ * 1. Run locally with inline env vars:
+ *    env 'INPUT_WHO-TO-GREET=Local Dev' 'INPUT_INCLUDE-TIME=true' 'INPUT_MESSAGE-PREFIX=Hi' node src/index.js
  *
  * 2. Set GitHub context environment variables (optional, for repo stats):
  *    export GITHUB_REPOSITORY="owner/repo-name"
- *    export GITHUB_REF="refs/heads/main"
- *    export GITHUB_SHA="abc123..."
- *
- * 3. Run locally:
- *    node src/index.js
- *
- * Example one-liner for testing:
- *    INPUT_WHO_TO_GREET="Local Dev" INPUT_INCLUDE_TIME="true" INPUT_MESSAGE_PREFIX="Hi" node src/index.js
  *
  * Note: Without GITHUB_REPOSITORY set, repo stats won't be fetched even with a token
  */
@@ -27,34 +19,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { Octokit } from '@octokit/rest';
-
-/**
- * Get input value (works reliably in both GitHub Actions and local environments)
- * @param {string} name - Input name (with dashes)
- * @returns {string} Input value
- */
-function getInput(name) {
-  // Try core.getInput first (works in GitHub Actions)
-  let value = core.getInput(name);
-
-  // Fallback: try direct environment variable access (for local development)
-  if (!value) {
-    const envName = `INPUT_${name.replace(/-/g, '_').toUpperCase()}`;
-    value = process.env[envName] || '';
-  }
-
-  return value;
-}
-
-/**
- * Convert string input to boolean (more permissive than core.getBooleanInput)
- * @param {string} name - Input name
- * @returns {boolean} Boolean value
- */
-function getBooleanInput(name) {
-  const input = getInput(name).toLowerCase();
-  return input === 'true' || input === '1' || input === 'yes';
-}
 
 /**
  * Get current timestamp in ISO format
@@ -112,10 +76,10 @@ export async function getRepoStats(token, owner, repo) {
 export async function run() {
   try {
     // Get inputs from action.yml
-    const whoToGreet = getInput('who-to-greet') || 'World';
-    const includeTime = getBooleanInput('include-time');
-    const messagePrefix = getInput('message-prefix') || 'Hello';
-    const githubToken = getInput('github-token');
+    const whoToGreet = core.getInput('who-to-greet') || 'World';
+    const includeTime = core.getInput('include-time') === 'true';
+    const messagePrefix = core.getInput('message-prefix') || 'Hello';
+    const githubToken = core.getInput('github-token');
 
     core.info(`Starting Hello World Action...`);
     core.info(`Who to greet: ${whoToGreet}`);
