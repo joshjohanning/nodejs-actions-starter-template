@@ -77,7 +77,7 @@ export async function run() {
   try {
     // Get inputs from action.yml
     const whoToGreet = core.getInput('who-to-greet') || 'World';
-    const includeTime = core.getInput('include-time') === 'true';
+    const includeTime = core.getBooleanInput('include-time');
     const messagePrefix = core.getInput('message-prefix') || 'Hello';
     const githubToken = core.getInput('github-token');
 

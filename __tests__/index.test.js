@@ -107,17 +107,17 @@ describe('Hello World Action', () => {
 
       expect(mockCore.getInput).toHaveBeenCalledWith('who-to-greet');
       expect(mockCore.getInput).toHaveBeenCalledWith('message-prefix');
-      expect(mockCore.getInput).toHaveBeenCalledWith('include-time');
+      expect(mockCore.getBooleanInput).toHaveBeenCalledWith('include-time');
       expect(mockCore.setOutput).toHaveBeenCalledWith('message', 'Hello, World!');
       expect(mockCore.info).toHaveBeenCalledWith('Generated greeting: Hello, World!');
     });
 
     test('should include time when requested', async () => {
+      mockCore.getBooleanInput.mockReturnValue(true);
       mockCore.getInput.mockImplementation(name => {
         const inputs = {
           'who-to-greet': 'World',
           'message-prefix': 'Hello',
-          'include-time': 'true', // Set to 'true' string to trigger time inclusion
           'github-token': ''
         };
         return inputs[name] || '';
