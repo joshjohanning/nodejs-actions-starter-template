@@ -155,7 +155,7 @@ describe('Hello World Action', () => {
     });
 
     test('should handle errors gracefully', async () => {
-      mockCore.setOutput.mockImplementation(() => {
+      mockCore.setOutput.mockImplementationOnce(() => {
         throw new Error('Test error');
       });
 
@@ -249,12 +249,56 @@ describe('Hello World Action', () => {
       expect(mockCore.info).toHaveBeenCalledWith('GitHub token provided: Yes');
     });
 
+    test('should log and output repo stats when token and API data are available', async () => {
+      const mockRepoData = {
+        full_name: 'test-owner/test-repo',
+        stargazers_count: 10,
+        forks_count: 2,
+        open_issues_count: 1,
+        language: 'JavaScript',
+        size: 512,
+        created_at: '2023-01-01T00:00:00Z',
+        updated_at: '2023-12-01T00:00:00Z'
+      };
+
+      mockOctokit.rest.repos.get.mockResolvedValue({ data: mockRepoData });
+
+      mockCore.getInput.mockImplementation(name => {
+        const inputs = {
+          'who-to-greet': 'World',
+          'message-prefix': 'Hello',
+          'github-token': 'test-token'
+        };
+        return inputs[name] || '';
+      });
+
+      await run();
+
+      expect(mockCore.info).toHaveBeenCalledWith('Repository: test-owner/test-repo');
+      expect(mockCore.info).toHaveBeenCalledWith('⭐ Stars: 10');
+      expect(mockCore.info).toHaveBeenCalledWith('🍴 Forks: 2');
+      expect(mockCore.info).toHaveBeenCalledWith('🐛 Open Issues: 1');
+      expect(mockCore.info).toHaveBeenCalledWith('📝 Language: JavaScript');
+      expect(mockCore.setOutput).toHaveBeenCalledWith('repo-stats', expect.stringContaining('test-owner/test-repo'));
+    });
+
     test('should skip repo stats when no token provided', async () => {
       await run();
 
       expect(mockOctokit.rest.repos.get).not.toHaveBeenCalled();
       expect(mockCore.setOutput).toHaveBeenCalledWith('message', 'Hello, World!');
       expect(mockCore.setOutput).not.toHaveBeenCalledWith('repo-stats', expect.anything());
+    });
+  });
+
+  describe('Summary fallback', () => {
+    test('should fall back to console logging when summary write fails', async () => {
+      mockCore.summary.write.mockRejectedValue(new Error('Summary write failed'));
+
+      await run();
+
+      expect(mockCore.info).toHaveBeenCalledWith('📊 Hello World Action Results:');
+      expect(mockCore.info).toHaveBeenCalledWith('   Greeting: Hello, World!');
     });
   });
 });
