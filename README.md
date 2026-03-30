@@ -103,13 +103,10 @@ This template includes everything you need to start developing GitHub Actions:
 
 ### Testing Locally
 
-You can test the action locally by setting environment variables:
+You can test the action locally using `env` to set input variables (hyphens are preserved in the env var names):
 
 ```bash
-export INPUT_WHO_TO_GREET="Local Dev"
-export INPUT_INCLUDE_TIME="true"
-export INPUT_MESSAGE_PREFIX="Hey"
-node src/index.js
+env 'INPUT_WHO-TO-GREET=Local Dev' 'INPUT_INCLUDE-TIME=true' 'INPUT_MESSAGE-PREFIX=Hey' node src/index.js
 ```
 
 ### Project Structure
