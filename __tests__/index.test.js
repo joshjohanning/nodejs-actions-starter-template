@@ -54,6 +54,7 @@ describe('Hello World Action', () => {
     mockOctokit.rest.repos.get.mockClear();
 
     // Set default inputs
+    mockCore.getBooleanInput.mockReturnValue(false);
     mockCore.getInput.mockImplementation(name => {
       const inputs = {
         'who-to-greet': 'World',
