@@ -261,7 +261,7 @@ describe('Hello World Action', () => {
         updated_at: '2023-12-01T00:00:00Z'
       };
 
-      mockOctokit.rest.repos.get.mockResolvedValue({ data: mockRepoData });
+      mockOctokit.rest.repos.get.mockResolvedValueOnce({ data: mockRepoData });
 
       mockCore.getInput.mockImplementation(name => {
         const inputs = {
@@ -293,7 +293,7 @@ describe('Hello World Action', () => {
 
   describe('Summary fallback', () => {
     test('should fall back to console logging when summary write fails', async () => {
-      mockCore.summary.write.mockRejectedValue(new Error('Summary write failed'));
+      mockCore.summary.write.mockRejectedValueOnce(new Error('Summary write failed'));
 
       await run();
 

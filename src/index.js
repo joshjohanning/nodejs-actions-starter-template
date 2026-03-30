@@ -5,9 +5,9 @@
  * Local Development & Testing:
  *
  * Uses core.getInput() which reads INPUT_<NAME> env vars (hyphens preserved).
- * Since shell variables can't contain hyphens, use env(1) or inline assignment:
+ * Since shell variables can't contain hyphens, set these via env(1):
  *
- * 1. Run locally with inline env vars:
+ * 1. Run locally with env vars:
  *    env 'INPUT_WHO-TO-GREET=Local Dev' 'INPUT_INCLUDE-TIME=true' 'INPUT_MESSAGE-PREFIX=Hi' node src/index.js
  *
  * 2. Set GitHub context environment variables (optional, for repo stats):
