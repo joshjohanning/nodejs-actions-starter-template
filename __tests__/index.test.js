@@ -113,7 +113,7 @@ describe('Hello World Action', () => {
     });
 
     test('should include time when requested', async () => {
-      mockCore.getBooleanInput.mockReturnValue(true);
+      mockCore.getBooleanInput.mockReturnValueOnce(true);
       mockCore.getInput.mockImplementation(name => {
         const inputs = {
           'who-to-greet': 'World',
