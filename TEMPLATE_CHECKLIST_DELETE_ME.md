@@ -70,6 +70,7 @@ Use this checklist when setting up your new GitHub Action from this template:
   - [ ] Test your action locally if possible
 
 - [ ] **Clean up**
+  - [ ] Delete any tags that were copied from the template repository (e.g., `v2.0.1`, `v2`) — these mirror the template's `package.json` version and will cause failures with `npm-version-check-action` downstream
   - [ ] Delete this `TEMPLATE_CHECKLIST.md` file
   - [ ] Commit your changes
   - [ ] Create your first release
