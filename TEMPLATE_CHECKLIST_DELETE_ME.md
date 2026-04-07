@@ -70,7 +70,7 @@ Use this checklist when setting up your new GitHub Action from this template:
   - [ ] Test your action locally if possible
 
 - [ ] **Clean up**
-  - [ ] Delete any tags that were copied from the template repository (e.g., `v2.0.1`, `v2`) — these mirror the template's `package.json` version and will cause failures with `npm-version-check-action` downstream
+  - [ ] Delete any releases and tags that were copied from the template repository (e.g., `v2.0.1`, `v2`) — these mirror the template's `package.json` version and will cause failures with `npm-version-check-action` downstream
   - [ ] Remove any unused runtime dependencies (e.g., `@actions/github`) with `npm uninstall <package>` — the template includes common packages, but your action may not need all of them
   - [ ] Delete this `TEMPLATE_CHECKLIST_DELETE_ME.md` file
   - [ ] Commit your changes
