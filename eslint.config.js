@@ -1,6 +1,5 @@
 import js from '@eslint/js';
 import prettier from 'eslint-plugin-prettier/recommended';
-import github from 'eslint-plugin-github';
 import { importX } from 'eslint-plugin-import-x';
 import jest from 'eslint-plugin-jest';
 import globals from 'globals';
@@ -10,7 +9,6 @@ export default [
   js.configs.recommended,
 
   // Plugin configs
-  github.getFlatConfigs().recommended,
   importX.flatConfigs.recommended,
   jest.configs['flat/recommended'],
   prettier,
@@ -35,9 +33,6 @@ export default [
       'i18n-text/no-en': 'off',
       camelcase: 'off', // GitHub API uses snake_case properties
       'object-shorthand': 'off', // Allow explicit property syntax for clarity
-      'import/no-namespace': 'off', // Override import rules enabled via eslint-plugin-github
-      'import/no-unresolved': 'off', // Override import rules enabled via eslint-plugin-github
-      'import/extensions': 'off', // Override import rules enabled via eslint-plugin-github
       'import-x/no-namespace': 'off', // Allow * namespace imports for ES modules
       'import-x/no-unresolved': 'off', // False positives for packages in node_modules
       'import-x/extensions': ['error', 'ignorePackages', { js: 'always' }], // Require .js extensions for ES modules
